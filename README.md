@@ -1,56 +1,72 @@
 # DSHCordis
 
-按 docs/cordis-plugin-spec.md 开发，目标接口 DSH 0.2.0-rc.2。零运行时 npm 依赖。
+两个用于 DeepSeek Harness（DSH）的插件：余额查询、空闲时段发送。当前发布版本为 **0.2.1**，开发接口参考 DSH **0.2.0-rc.2**。
 
-| 插件 | 当前状态 | 本地目录 |
+| 插件名称 | npm 包名 | 功能 |
 | --- | --- | --- |
-| @liming999/balance 0.2.1 | 已修复 RPC 注册上下文；API Key 余额待真实 DSH 验收 | packages/balance |
-| @liming999/offpeak 0.2.1 | 已修复 RPC 注册上下文；自动发送待真实 DSH 验收 | packages/offpeak |
+| [余额查询](./packages/balance/README.md) | [@liming999/balance](https://www.npmjs.com/package/@liming999/balance) | 在底边栏显示余额，可配置工作与非工作时的查询频率 |
+| [空闲时段发送](./packages/offpeak/README.md) | [@liming999/offpeak](https://www.npmjs.com/package/@liming999/offpeak) | 等待空闲时段发送草稿，提供今日时段提示和空闲日历 |
 
-## 本地安装
+## 在 DSH 插件界面安装
 
-插件页使用下列绝对目录安装，或执行：
+打开 DSH 插件管理中的安装入口，在“填入插件 npm 包名”处输入以下内容，分别安装。
 
-```powershell
-dsh plugin --profile desktop add "D:\projects\DSHCordis\packages\balance"
-dsh plugin --profile desktop add "D:\projects\DSHCordis\packages\offpeak"
+**余额查询：**
+
+```text
+@liming999/balance
 ```
 
-本次余额插件新增宿主 API 查询，升级后必须完全退出并重启客户端。安装结果 application 应为 applied；restart-required 则重启；failed 或 warnings 需要诊断。各包 README 有详细验收步骤。
+**空闲时段发送：**
 
-## 开发检查
-
-不需要 npm install。
-
-```powershell
-node scripts/build.mjs
-npm test
-node scripts/release-check.mjs
-npm pack ./packages/balance --dry-run --ignore-scripts
-npm pack ./packages/offpeak --dry-run --ignore-scripts
+```text
+@liming999/offpeak
 ```
 
-两包 src 为客户端源码，lib/client.js 是安装产物；宿主直接使用 ESM。另有 `node scripts/verify-reference.mjs`，依赖 tools/reference 中已下载的官方 SlotCore 0.2.0-rc.2，检查真实注册白名单和标准 props。它不代替真实 React 渲染或 DSH 验收。
+输入框只填写包名，不填写 `npm install`、`dsh plugin add` 或网页链接。安装后完全退出并重启 DSH；中文插件列表显示“余额查询”和“空闲时段发送”。
 
-`node scripts/verify-rpc-runtime.mjs` 使用 tools/reference/installed 中从本机 DSH 提取的 Cordis、Cosmokit 和 Connection 源码，复现旧 getter 注册错误，并检查新版本启用、认证拒绝分支及卸载。传输层为测试替身，不能替代完整 DSH 端到端验收。
+如果之前安装过旧名称 `@dshcordis/balance` 或 `@dshcordis/offpeak`，先在插件管理器中移除旧包，再安装新包，避免重复注册。
 
-## 测试通过后分发
+## 使用命令行安装
 
-未发布 npm，未修改 DSH profile。确认本地验收、版本及 @dshcordis scope 权限后：
+使用 DSH Desktop 的 `desktop` profile 时，在终端执行：
 
 ```powershell
-npm publish ./packages/balance --access public
-npm publish ./packages/offpeak --access public
+dsh plugin --profile desktop add @liming999/balance
+dsh plugin --profile desktop add @liming999/offpeak
 ```
 
-安装方届时可通过对应包名安装。两个包均无自动发布流程。
+其他 profile 请将 `desktop` 替换为实际名称。安装或更新后完全退出并重启 DSH；如果出现 warnings 或启用失败，应先处理错误。
 
-设计、接口证据和行为边界见 docs/plugin-design.md；节假日来源见 docs/calendar-sources.md。
+## 余额查询
 
-## 0.2.0 分发候选
+- 在输入框底边栏显示余额，点击可查看总余额、赠送余额和充值余额。
+- 支持 DeepSeek API Key 和登录账户；API Key 模式不要求登录，自动模式优先使用 API Key。
+- 任一会话的 Agent 工作时默认每 **30 秒**查询，否则默认每 **5 分钟**查询。
+- 在 **设置 → 插件 → 余额查询** 中调整频率，工作时支持 **10 秒**查询。
+- 配置保存在当前浏览器，同源窗口同步。非官方代理地址不支持 API Key 余额查询。
 
-余额查询：工作默认 30 秒（可选 10 秒），非工作默认 5 分钟；设置 → 插件 → 余额查询中调整。空闲时段发送：保留开启后等待并锁定草稿的逻辑；悬停显示今日时段，设置 → 插件 → 空闲时段日历查看月历。两页通过官方 settings.plugins.tab 注册，与插件列表同属插件设置页面。
+详细说明见 [余额查询 README](./packages/balance/README.md)。
 
-打包产物位于 dist；发布前完成新版 DSH 本机验收并确认 npm scope 权限。尚未发布 npm。
+## 空闲时段发送
 
-0.2.1 修复插件列表名称：通过导出的 locale/en.json、locale/zh.json 提供 meta.title 和 meta.description；安装包名保持不变。更新后完全重启 DSH。
+先关闭开关编辑草稿，再开启开关。高峰时段会暂停编辑并显示倒计时；进入空闲时段后自动提交一次当前非空草稿。关闭开关可取消等待并恢复编辑。当前为空闲时段时，仍由用户正常提交。
+
+按北京时间判断：
+
+| 日期类型 | 空闲时段 |
+| --- | --- |
+| 工作日，包括调休工作日 | 00:00–09:00、12:00–14:00、18:00–24:00 |
+| 节假日和休息日 | 全天 |
+
+鼠标悬停开关可查看今日空闲时段；在 **设置 → 插件 → 空闲时段日历** 中查看月历。内置 2024–2026 年节假日安排，未收录年份按普通工作日近似判断并显示提示。
+
+插件不是后台定时任务，退出 DSH 后不会发送。切换会话、隐藏页面、关闭开关或状态读取失败会取消当前等待；会话运行中不自动排队。该规则不查询实时价格，实际费用以服务商计费为准。
+
+详细说明见 [空闲时段发送 README](./packages/offpeak/README.md)。
+
+## 仓库内容
+
+`packages/balance` 和 `packages/offpeak` 包含插件源码、已构建的 `lib`、语言文件和安装声明。npm 包包含预构建代码，用户安装时不需要自行构建。本仓库公开内容以插件包和使用说明为主。
+
+两个插件均使用 MIT 许可证，详见各包的 LICENSE。

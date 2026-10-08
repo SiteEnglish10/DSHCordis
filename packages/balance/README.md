@@ -1,14 +1,22 @@
 # 余额查询
 
-本地测试版 `@liming999/balance@0.2.1`，接口参考 DSH 0.2.0-rc.2。
+已发布 [@liming999/balance](https://www.npmjs.com/package/@liming999/balance)，当前版本 **0.2.1**，接口参考 DSH 0.2.0-rc.2。
 
-在插件管理器安装 `D:\projects\DSHCordis\packages\balance`，或：
+## 安装
 
-```powershell
-dsh plugin --profile desktop add "D:\projects\DSHCordis\packages\balance"
+在 DSH 插件安装界面的“填入插件 npm 包名”处，只填写：
+
+```text
+@liming999/balance
 ```
 
-本次新增宿主查询逻辑，升级后必须完全退出并重启 DSH。检查安装结果的 application 和 warnings。
+也可使用命令行安装（其他 profile 请替换 `desktop`）：
+
+```powershell
+dsh plugin --profile desktop add @liming999/balance
+```
+
+安装或更新后完全退出并重启 DSH，中文展示名称为“余额查询”。若此前安装了旧包 `@dshcordis/balance`，先移除旧包，避免重复注册。检查安装结果的 application 和 warnings。
 
 输入框下方显示多币种余额；点击向上展开赠送、充值和总余额，点击外部或 Esc 关闭。弹层可以选择「自动（优先 API Key）」「API Key」「登录账户」，并显示当前来源。选择只在当前插件生命周期内保留，不跟随会话模型自动切换。
 
@@ -29,9 +37,7 @@ API Key 模式不要求登录。宿主通过官方 deepseek-official 提供方�
 5. 断网后显示不可用，恢复后重查；测试明暗主题、多会话和禁用再启用，无重复项。
 6. 充值只在浏览器打开官方页面，不执行支付。
 
-源码在 src，修改后在仓库根运行 `node scripts/build.mjs`。宿主入口或 API 模块更改需完全重启。
-
-本地验收通过后再发布，当前未执行 npm publish。发布前确认拥有 @dshcordis scope 权限；更换包名需同时修改补丁、构建脚本和模块 ID。
+源码在 src，安装时加载 lib 中的预构建代码。公开包不要求用户自行构建；宿主入口或 API 模块更改后需完全重启 DSH。
 
 ## 查询频率配置
 

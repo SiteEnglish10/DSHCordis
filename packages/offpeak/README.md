@@ -1,11 +1,19 @@
 # 空闲时段发送
 
-`@liming999/offpeak@0.2.1`，适配 DSH 0.2.0-rc.2，待本机界面验收。
+已发布 [@liming999/offpeak](https://www.npmjs.com/package/@liming999/offpeak)，当前版本 **0.2.1**，开发接口参考 DSH 0.2.0-rc.2。
 
-在插件页安装 `D:\projects\DSHCordis\packages\offpeak`，或：
+## 安装
+
+在 DSH 插件安装界面的“填入插件 npm 包名”处，只填写：
+
+```text
+@liming999/offpeak
+```
+
+也可使用命令行安装（其他 profile 请替换 `desktop`）：
 
 ```powershell
-dsh plugin --profile desktop add "D:\projects\DSHCordis\packages\offpeak"
+dsh plugin --profile desktop add @liming999/offpeak
 ```
 
 完全退出并重启 DSH。发送键左侧出现「空闲发送」开关。先关闭开关编辑好草稿，再开启：高峰时段阻塞发送和编辑，显示倒计时；关闭开关立即解除自己的阻塞，恢复编辑。进入空闲时段后通过原生提交入口提交一次当前草稿，空草稿不发送。若会话正在运行或提交中，解除阻塞但不自动发送，请手动提交。
@@ -28,7 +36,7 @@ dsh plugin --profile desktop add "D:\projects\DSHCordis\packages\offpeak"
 6. 有模型缺失等其他阻塞时开启、关闭本插件，确认不会移除原有限制。
 7. 测试深浅主题、附件草稿和多个会话。运行中会话到点不自动排队。
 
-时间边界和发送状态机可通过仓库根 `npm test` 验证；测试使用注入的时间和提交回调，不会发送真实消息。没有生产测试时钟后门。
+安装包包含 lib 中的预构建代码，用户不需要自行构建。没有生产测试时钟后门。
 
 ## 今日时段与日历
 
