@@ -1,6 +1,8 @@
 # 空闲时段发送
 
-已发布 [@liming999/offpeak](https://www.npmjs.com/package/@liming999/offpeak)，当前版本 **0.2.1**，开发接口参考 DSH 0.2.0-rc.2。
+<img src="./icon.svg" width="80" height="80" alt="插件图标">
+
+已发布 [@liming999/offpeak](https://www.npmjs.com/package/@liming999/offpeak)，当前源码版本 **0.2.2**（新增图标，待发布），开发接口参考 DSH 0.2.0-rc.2。
 
 ## 安装
 
@@ -45,3 +47,5 @@ dsh plugin --profile desktop add @liming999/offpeak
 公开分发包名为 `@liming999/offpeak`；显示名称为「空闲时段发送」。
 
 0.2.1 修复插件列表名称：通过导出的 locale/en.json、locale/zh.json 提供 meta.title 和 meta.description；安装包名保持不变。更新后完全重启 DSH。
+
+0.2.2 新增专属 SVG 图标，用于 DSH 插件列表展示。更新安装后完全退出并重启 DSH。

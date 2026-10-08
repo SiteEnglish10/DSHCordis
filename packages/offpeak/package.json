@@ -1,6 +1,6 @@
 {
   "name": "@liming999/offpeak",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "开启后会在空闲时段发送信息，省钱",
   "type": "module",
   "exports": {
@@ -8,7 +8,8 @@
     "./client": "./lib/client.js",
     "./package.json": "./package.json",
     "./locale/zh.json": "./locale/zh.json",
-    "./locale/en.json": "./locale/en.json"
+    "./locale/en.json": "./locale/en.json",
+    "./icon.svg": "./icon.svg"
   },
   "dsh": {
     "bundle": {
@@ -32,7 +33,8 @@
     "cordis.patch.yml",
     "README.md",
     "LICENSE",
-    "locale"
+    "locale",
+    "icon.svg"
   ],
   "publishConfig": {
     "access": "public"
@@ -46,5 +48,6 @@
   "homepage": "https://github.com/SiteEnglish10/DSHCordis#readme",
   "bugs": {
     "url": "https://github.com/SiteEnglish10/DSHCordis/issues"
-  }
+  },
+  "icon": "./icon.svg"
 }

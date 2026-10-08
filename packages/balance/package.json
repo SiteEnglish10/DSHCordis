@@ -1,6 +1,6 @@
 {
   "name": "@liming999/balance",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "在底边栏显示余额，Agent 工作时可每 10 秒查询，非工作时默认每 5 分钟查询，可在插件页配置查询频率",
   "type": "module",
   "exports": {
@@ -8,7 +8,8 @@
     "./client": "./lib/client.js",
     "./package.json": "./package.json",
     "./locale/zh.json": "./locale/zh.json",
-    "./locale/en.json": "./locale/en.json"
+    "./locale/en.json": "./locale/en.json",
+    "./icon.svg": "./icon.svg"
   },
   "dsh": {
     "bundle": {
@@ -33,7 +34,8 @@
     "cordis.patch.yml",
     "README.md",
     "LICENSE",
-    "locale"
+    "locale",
+    "icon.svg"
   ],
   "publishConfig": {
     "access": "public"
@@ -47,5 +49,6 @@
   "homepage": "https://github.com/SiteEnglish10/DSHCordis#readme",
   "bugs": {
     "url": "https://github.com/SiteEnglish10/DSHCordis/issues"
-  }
+  },
+  "icon": "./icon.svg"
 }

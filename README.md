@@ -1,6 +1,8 @@
 # DSHCordis
 
-两个用于 DeepSeek Harness（DSH）的插件：余额查询、空闲时段发送。当前发布版本为 **0.2.1**，开发接口参考 DSH **0.2.0-rc.2**。
+<img src="./packages/balance/icon.svg" width="64" height="64" alt="余额查询图标"> <img src="./packages/offpeak/icon.svg" width="64" height="64" alt="空闲时段发送图标">
+
+两个用于 DeepSeek Harness（DSH）的插件：余额查询、空闲时段发送。当前源码版本为 **0.2.2**（新增插件图标，发布后可安装），开发接口参考 DSH **0.2.0-rc.2**。
 
 | 插件名称 | npm 包名 | 功能 |
 | --- | --- | --- |

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>空闲时段发送</title>
+  <defs>
+    <linearGradient id="offpeak-tile" x1="12" y1="8" x2="116" y2="124" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#23B6A1"/>
+      <stop offset="1" stop-color="#087C83"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#offpeak-tile)"/>
+  <circle cx="55" cy="57" r="29" stroke="#FFF" stroke-width="7"/>
+  <path d="M55 40V57L66 64" stroke="#FFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 83L106 65L95 105L83 91L66 83Z" fill="#D6FFF2" stroke="#087C83" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M83 91L96 78" stroke="#087C83" stroke-width="4" stroke-linecap="round"/>
+</svg>

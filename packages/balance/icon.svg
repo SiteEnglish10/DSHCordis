@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>余额查询</title>
+  <defs>
+    <linearGradient id="balance-tile" x1="12" y1="8" x2="116" y2="124" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2588F4"/>
+      <stop offset="1" stop-color="#3447C9"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#balance-tile)"/>
+  <path d="M29 47V41C29 36 33 32 38 32H86" stroke="#B9DDFF" stroke-width="7" stroke-linecap="round"/>
+  <rect x="26" y="44" width="78" height="54" rx="13" fill="#FFF"/>
+  <path d="M88 59H104V83H88C81 83 76 78 76 71C76 64 81 59 88 59Z" fill="#CFE6FF"/>
+  <circle cx="89" cy="71" r="4" fill="#345CD5"/>
+  <path d="M42 57L51 68L60 57M51 68V85M42 71H60M42 78H60" stroke="#345CD5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
