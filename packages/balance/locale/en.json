@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Balance Query",
+    "description": "Show balance in the bottom bar. Configure refresh intervals for working and idle agents."
+  }
+}

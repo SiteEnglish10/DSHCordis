@@ -1,0 +1,19 @@
+# 默认忽略根目录所有内容
+/*
+
+# 保留发布包、项目说明和忽略规则
+!/.gitignore
+!/README.md
+!/packages/
+
+# packages 内仍排除依赖、凭证和临时文件
+node_modules/
+.npm-cache/
+.env
+.env.*
+!.env.example
+.npmrc
+*.log
+*.tgz
+.DS_Store
+Thumbs.db

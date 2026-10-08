@@ -1,0 +1,3 @@
+- insert:
+    - id: dshcordis-offpeak
+      name: '@dshcordis/offpeak'
