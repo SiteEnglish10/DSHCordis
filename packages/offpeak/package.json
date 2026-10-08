@@ -1,5 +1,5 @@
 {
-  "name": "@dshcordis/offpeak",
+  "name": "@liming999/offpeak",
   "version": "0.2.1",
   "description": "开启后会在空闲时段发送信息，省钱",
   "type": "module",

@@ -1,6 +1,6 @@
 # 余额查询
 
-本地测试版 `@dshcordis/balance@0.2.1`，接口参考 DSH 0.2.0-rc.2。
+本地测试版 `@liming999/balance@0.2.1`，接口参考 DSH 0.2.0-rc.2。
 
 在插件管理器安装 `D:\projects\DSHCordis\packages\balance`，或：
 
@@ -37,6 +37,6 @@ API Key 模式不要求登录。宿主通过官方 deepseek-official 提供方�
 
 进入「设置 → 插件 → 余额查询」：工作频率可选 10/30/60/120/300 秒，非工作频率可选 1/5/10/30/60 分钟。设置立即生效，保存于当前浏览器 localStorage，同源窗口同步；不同浏览器不共享。没有挂载余额按钮时不轮询。窗口隐藏仍由浏览器定时器调度，可能被后台限速。切换工作状态按上次查询时间重新判断是否到期。
 
-公开分发包名仍为 `@dshcordis/balance`；显示名称为「余额查询」。
+公开分发包名仍为 `@liming999/balance`；显示名称为「余额查询」。
 
 0.2.1 修复插件列表名称：通过导出的 locale/en.json、locale/zh.json 提供 meta.title 和 meta.description；安装包名保持不变。更新后完全重启 DSH。

@@ -4,8 +4,8 @@
 
 | 插件 | 当前状态 | 本地目录 |
 | --- | --- | --- |
-| @dshcordis/balance 0.2.1 | 已修复 RPC 注册上下文；API Key 余额待真实 DSH 验收 | packages/balance |
-| @dshcordis/offpeak 0.2.1 | 已修复 RPC 注册上下文；自动发送待真实 DSH 验收 | packages/offpeak |
+| @liming999/balance 0.2.1 | 已修复 RPC 注册上下文；API Key 余额待真实 DSH 验收 | packages/balance |
+| @liming999/offpeak 0.2.1 | 已修复 RPC 注册上下文；自动发送待真实 DSH 验收 | packages/offpeak |
 
 ## 本地安装
 

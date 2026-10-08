@@ -1,6 +1,6 @@
 # 空闲时段发送
 
-`@dshcordis/offpeak@0.2.1`，适配 DSH 0.2.0-rc.2，待本机界面验收。
+`@liming999/offpeak@0.2.1`，适配 DSH 0.2.0-rc.2，待本机界面验收。
 
 在插件页安装 `D:\projects\DSHCordis\packages\offpeak`，或：
 
@@ -34,6 +34,6 @@ dsh plugin --profile desktop add "D:\projects\DSHCordis\packages\offpeak"
 
 鼠标悬停开关显示今日北京时间空闲窗口：工作日 00:00–09:00、12:00–14:00、18:00–24:00；节假日和休息日显示「全天」。进入「设置 → 插件 → 空闲时段日历」查看月历，可切换月份；调休工作日按分时空闲处理。日历及悬停日期按设备北京时间显示，自动发送仍使用宿主 RPC 时间。未收录年份明确标注近似判断。
 
-公开分发包名为 `@dshcordis/offpeak`；显示名称为「空闲时段发送」。
+公开分发包名为 `@liming999/offpeak`；显示名称为「空闲时段发送」。
 
 0.2.1 修复插件列表名称：通过导出的 locale/en.json、locale/zh.json 提供 meta.title 和 meta.description；安装包名保持不变。更新后完全重启 DSH。
